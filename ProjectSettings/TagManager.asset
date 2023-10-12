@@ -8,6 +8,7 @@ TagManager:
   - wallDown
   - wallLeft
   - wallRight
+  - player
   layers:
   - Default
   - TransparentFX
