@@ -4,19 +4,29 @@ using UnityEngine;
 
 public class pongBot : MonoBehaviour
 {
-
     public float ySpeed = 3f;
-    public float yPostion = 7;
+    private float yPosition = 0;
+    public GameObject ball;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
+        yPosition = yPosition + ySpeed * Time.deltaTime;
+        transform.position = new Vector3(transform.position.x, yPosition, transform.position.z);
+        if (yPosition >= 3.2f)
+        {
+            ySpeed = ySpeed * -1f;
+        }
+        else if (yPosition <= -3.2f)
+        {
+            ySpeed = ySpeed * -1f;
+        }
     }
 }

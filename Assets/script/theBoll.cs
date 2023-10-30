@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UIElements;
+using UnityEngine.SceneManagement;
+using System.Threading;
 
 public class theBoll : MonoBehaviour
 {
@@ -14,6 +16,7 @@ public class theBoll : MonoBehaviour
     private int leftScore = 0;
     private int rightScore = 0;
     public int topScore = 10;
+    //int milliseconds = 2000;
 
     // Start is called before the first frame update
     void Start()
@@ -53,7 +56,16 @@ public class theBoll : MonoBehaviour
             ySpeed = 0;
             xBallLocation = 0;
             yBallLocation = 0;
-        }else if (rightScore >= topScore)
+            //back to menu with a delay (does not work)
+            //Thread.Sleep(milliseconds);
+            //SceneManager.LoadScene("startMenu");
+
+            //back to menu with a delay (does not work)
+            ////yield return WaitForSeconds(2f);
+            //SceneManager.LoadScene("startMenu");
+
+        }
+        else if (rightScore >= topScore)
         {
             scoreboard.text = "Right won!";
             xSpeed = 0;
