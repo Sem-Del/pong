@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/pongOnePlayer.unity
     guid: 39f255400e5c7ec4287c8fd60b0bfc3c
+  - enabled: 1
+    path: Assets/Scenes/pongCustom.unity
+    guid: 1b0153daa01ee8144ab0f717cd4844f7
   m_configObjects: {}

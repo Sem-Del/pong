@@ -13,4 +13,8 @@ public class startGame : MonoBehaviour
     {
         SceneManager.LoadScene("pongOnePlayer");
     }
+    public void startCustomPong()
+    {
+        SceneManager.LoadScene("pongCustom");
+    }
 }
