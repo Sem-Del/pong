@@ -17,14 +17,14 @@ public class pongBotCustom : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        //the bot paddle moves up and down and he changes up and down if you hits a specific height
         yPosition = yPosition + ySpeed * Time.deltaTime;
         transform.position = new Vector3(transform.position.x, yPosition, transform.position.z);
-        if (yPosition >= 2.47f)
+        if (yPosition >= 2.3f)
         {
             ySpeed = ySpeed * -1f;
         }
-        else if (yPosition <= -2.47f)
+        else if (yPosition <= -2.3f)
         {
             ySpeed = ySpeed * -1f;
         }

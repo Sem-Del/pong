@@ -263,7 +263,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 49839715}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4f88b0a24634a84c8908324527bd4ac, type: 3}
+  m_Script: {fileID: 11500000, guid: 616a3db2050042448908a75cc6230129, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 3
@@ -830,7 +830,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 597559853}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab0b6431336b1d3458d1b205e4d24802, type: 3}
+  m_Script: {fileID: 11500000, guid: 2ed07808987a4a149afb23b2ce21c813, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   xBallLocation: 0
@@ -838,7 +838,7 @@ MonoBehaviour:
   xSpeed: 0
   ySpeed: 0
   scoreboard: {fileID: 414082767}
-  topScore: 100
+  topScore: 1
 --- !u!1 &616614318
 GameObject:
   m_ObjectHideFlags: 0
@@ -1501,7 +1501,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2093197420}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6ede75a1ef826741a8ddddf9276dbb8, type: 3}
+  m_Script: {fileID: 11500000, guid: b9d9692df08874849a42d57aabcf3537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ySpeed: 4

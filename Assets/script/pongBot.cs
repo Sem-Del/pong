@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class pongBot : MonoBehaviour
 {
@@ -17,16 +18,33 @@ public class pongBot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        //see what scene your'e in and then uses the right code for that scene
+        //the bot paddle moves up and down and he changes up and down if you hits a specific height
         yPosition = yPosition + ySpeed * Time.deltaTime;
         transform.position = new Vector3(transform.position.x, yPosition, transform.position.z);
-        if (yPosition >= 3.2f)
+        Scene currentScene = SceneManager.GetActiveScene();
+        string sceneName = currentScene.name;
+        if (sceneName == "pongTwoPlayers")
         {
-            ySpeed = ySpeed * -1f;
+            if (yPosition >= 3f)
+            {
+                ySpeed = ySpeed * -1f;
+            }
+            else if (yPosition <= -3f)
+            {
+                ySpeed = ySpeed * -1f;
+            }
         }
-        else if (yPosition <= -3.2f)
+        else if (sceneName == "pongCustom")
         {
-            ySpeed = ySpeed * -1f;
+            if (yPosition >= 2.3f)
+            {
+                ySpeed = ySpeed * -1f;
+            }
+            else if (yPosition <= -2.3f)
+            {
+                ySpeed = ySpeed * -1f;
+            }
         }
     }
 }

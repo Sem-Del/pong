@@ -699,7 +699,7 @@ MonoBehaviour:
   xSpeed: 3
   ySpeed: 3
   scoreboard: {fileID: 414082767}
-  topScore: 2
+  topScore: 1
 --- !u!212 &597559857
 SpriteRenderer:
   m_ObjectHideFlags: 0

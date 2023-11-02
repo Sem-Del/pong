@@ -23,8 +23,11 @@ public class theBollCustom : MonoBehaviour
         xSpeed = 7f;
         ySpeed = 7f;
         xBallLocation = 0;
-        yBallLocation = Random.Range(-3f,3f);
+        yBallLocation = Random.Range(-3f, 3f);
     }
+    //set ball loction to the middle
+    //update the score
+    //let the ball go to the side of the person that made the point.
     private void resetBall(string leftOrRight)
     {
         xBallLocation = 0f;
@@ -48,6 +51,7 @@ public class theBollCustom : MonoBehaviour
         xBallLocation += xSpeed * Time.deltaTime;
         yBallLocation += ySpeed * Time.deltaTime;
         transform.position = new Vector3(xBallLocation, yBallLocation, 0);
+        //if left or right score is topscore then stop the ball and say the winner
         if (leftScore >= topScore)
         {
             scoreboard.text = "left won";
@@ -55,13 +59,6 @@ public class theBollCustom : MonoBehaviour
             ySpeed = 0;
             xBallLocation = 0;
             yBallLocation = 0;
-            //back to menu with a delay (does not work)
-            //Thread.Sleep(milliseconds);
-            //SceneManager.LoadScene("startMenu");
-
-            //back to menu with a delay (does not work)
-            ////yield return WaitForSeconds(2f);
-            //SceneManager.LoadScene("startMenu");
 
         }
         else if (rightScore >= topScore)
@@ -73,6 +70,8 @@ public class theBollCustom : MonoBehaviour
             yBallLocation = 0f;
         }
     }
+    //if you hit a specif wall or player then the direction changes to the otherside and goes a little faster
+    //if it hits the left or right wall then the other player get a point and the ball resets
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("wallUp"))

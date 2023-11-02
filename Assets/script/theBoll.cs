@@ -16,7 +16,6 @@ public class theBoll : MonoBehaviour
     private int leftScore = 0;
     private int rightScore = 0;
     public int topScore = 10;
-    //int milliseconds = 2000;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +27,9 @@ public class theBoll : MonoBehaviour
     }
     private void resetBall(string leftOrRight)
     {
+        //set ball loction to the middle
+        //update the score
+        //let the ball go to the side of the person that made the point.
         xBallLocation = 0f;
         yBallLocation = Random.Range(-3f, 3f);
         scoreboard.text = leftScore + " - " + rightScore;
@@ -49,33 +51,54 @@ public class theBoll : MonoBehaviour
         xBallLocation += xSpeed * Time.deltaTime;
         yBallLocation += ySpeed * Time.deltaTime;
         transform.position = new Vector3(xBallLocation, yBallLocation, 0);
-        if (leftScore >= topScore)
+        //see what scene your'e in and then uses the right code for that scene
+        //if left or right score is topscore then stop the ball and say the winner
+        Scene currentScene = SceneManager.GetActiveScene();
+        string sceneName = currentScene.name;
+        if (sceneName == "pongTwoPlayers")
         {
-            scoreboard.text = "left won";
-            xSpeed = 0;
-            ySpeed = 0;
-            xBallLocation = 0;
-            yBallLocation = 0;
-            //back to menu with a delay (does not work)
-            //Thread.Sleep(milliseconds);
-            //SceneManager.LoadScene("startMenu");
-
-            //back to menu with a delay (does not work)
-            ////yield return WaitForSeconds(2f);
-            //SceneManager.LoadScene("startMenu");
-
+            if (leftScore >= topScore)
+            {
+                scoreboard.text = "left won";
+                xSpeed = 0;
+                ySpeed = 0;
+                xBallLocation = 0;
+                yBallLocation = 0;
+            }
+            else if (rightScore >= topScore)
+            {
+                scoreboard.text = "Right won!";
+                xSpeed = 0;
+                ySpeed = 0;
+                xBallLocation = 0f;
+                yBallLocation = 0f;
+            }
         }
-        else if (rightScore >= topScore)
+        else if (sceneName == "pongCustom")
         {
-            scoreboard.text = "Right won!";
-            xSpeed = 0;
-            ySpeed = 0;
-            xBallLocation = 0f;
-            yBallLocation = 0f;
+            if (leftScore >= topScore)
+            {
+                scoreboard.text = "left won";
+                xSpeed = 0;
+                ySpeed = 0;
+                xBallLocation = 0;
+                yBallLocation = 0;
+
+            }
+            else if (rightScore >= topScore)
+            {
+                scoreboard.text = "Bot won!";
+                xSpeed = 0;
+                ySpeed = 0;
+                xBallLocation = 0f;
+                yBallLocation = 0f;
+            }
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        //if you hit a specific wall or player then the direction changes to the otherside and if it is a player it goes also a little faster
+        //if it hits the left or right wall then the other player get a point and the ball resets.
         if (collision.gameObject.CompareTag("wallUp"))
         {
             ySpeed *= -1f;
